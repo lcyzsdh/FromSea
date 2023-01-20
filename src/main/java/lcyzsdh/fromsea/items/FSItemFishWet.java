@@ -1,4 +1,4 @@
-package lcyzsdh.fromsea.item;
+package lcyzsdh.fromsea.items;
 
 import lcyzsdh.fromsea.FromSea;
 import net.minecraft.item.Item;

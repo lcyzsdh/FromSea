@@ -1,4 +1,4 @@
-package lcyzsdh.fromsea.item;
+package lcyzsdh.fromsea.items;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
