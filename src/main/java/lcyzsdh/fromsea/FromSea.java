@@ -1,7 +1,6 @@
 package lcyzsdh.fromsea;
 
 import lcyzsdh.fromsea.blocks.FSBlockRegistry;
-import lcyzsdh.fromsea.blocks.tile.FSTileEntityRegistry;
 import lcyzsdh.fromsea.items.FSItemGroup;
 import lcyzsdh.fromsea.items.FSItemRegistry;
 import net.minecraft.item.ItemGroup;
@@ -15,6 +14,6 @@ public class FromSea {
     public FromSea() {
         FSItemRegistry.FSITEM.register(FMLJavaModLoadingContext.get().getModEventBus());
         FSBlockRegistry.FSBLOCK.register(FMLJavaModLoadingContext.get().getModEventBus());
-        FSTileEntityRegistry.FSTILEENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
+        //FSTileEntityRegistry.FSTILEENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

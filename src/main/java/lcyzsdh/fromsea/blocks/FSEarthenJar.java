@@ -1,6 +1,6 @@
 package lcyzsdh.fromsea.blocks;
 
-import lcyzsdh.fromsea.blocks.tile.FSEarthenJarTileEntity;
+//import lcyzsdh.fromsea.blocks.tile.FSEarthenJarTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -21,7 +21,7 @@ public class FSEarthenJar extends Block {
     public FSEarthenJar() {
         super(Properties.copy(Blocks.STONE));
     }
-
+/*
     @Override
     public boolean hasTileEntity(BlockState state) {
         return true;
@@ -40,5 +40,5 @@ public class FSEarthenJar extends Block {
             NetworkHooks.openGui((ServerPlayerEntity) player,tile,pos);
         }
         return ActionResultType.SUCCESS;
-    }
+    }*/
 }

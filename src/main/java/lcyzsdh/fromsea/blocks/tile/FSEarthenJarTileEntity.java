@@ -10,7 +10,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 import javax.annotation.Nullable;
 
-public class FSEarthenJarTileEntity extends TileEntity implements INamedContainerProvider {
+/*public class FSEarthenJarTileEntity extends TileEntity implements INamedContainerProvider {
     public FSEarthenJarTileEntity() {
         super(FSTileEntityRegistry.EARTHEN_JAR_TILE_ENTITY.get());
     }
@@ -25,4 +25,4 @@ public class FSEarthenJarTileEntity extends TileEntity implements INamedContaine
     public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
         return null;
     }
-}
+}*/
