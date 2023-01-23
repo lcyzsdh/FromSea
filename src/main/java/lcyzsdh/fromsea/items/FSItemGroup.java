@@ -10,6 +10,6 @@ public class FSItemGroup extends ItemGroup {
 
     @Override
     public ItemStack makeIcon() {
-        return new ItemStack(FSItemRegistry.FISHWET.get());
+        return new ItemStack(FSItemRegistry.COOKED_GRASS_CARP.get());
     }
 }

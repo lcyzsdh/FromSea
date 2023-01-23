@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class FSItemRegistry {
-    public static final DeferredRegister<Item> FSITEM = DeferredRegister.create(ForgeRegistries.ITEMS, "fromsea");
+    public static final DeferredRegister<Item> FSITEM = DeferredRegister.create(ForgeRegistries.ITEMS, FromSea.MOD_ID);
     public static final RegistryObject<Item> FISHWET = FSITEM.register("fishwet", FSItemFishWet::new);
     private static final ItemGroup GROUP = FromSea.FSItemGroup;
 
@@ -32,5 +32,5 @@ public class FSItemRegistry {
 
     //block
     public static final RegistryObject<Item> SHELL_WALL = FSITEM.register("shell_wall", () -> new BlockItem(FSBlockRegistry.SHELL_WALL.get(), new Item.Properties().tab(GROUP)));
-    public static final RegistryObject<Item> EARTHEN_JAR = FSITEM.register("earthen_jar", () -> new BlockItem(FSBlockRegistry.EARTHEN_JAR.get(), new Item.Properties().tab(GROUP)));
+    //public static final RegistryObject<Item> EARTHEN_JAR = FSITEM.register("earthen_jar", () -> new BlockItem(FSBlockRegistry.EARTHEN_JAR.get(), new Item.Properties().tab(GROUP)));
 }
