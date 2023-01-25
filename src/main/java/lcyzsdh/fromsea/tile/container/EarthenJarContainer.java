@@ -1,4 +1,4 @@
-package lcyzsdh.fromsea.blocks.tile.container;
+package lcyzsdh.fromsea.tile.container;
 
 //import lcyzsdh.fromsea.blocks.tile.FSEarthenJarTileEntity;
 import lcyzsdh.fromsea.client.gui.EarthenJarScreen;

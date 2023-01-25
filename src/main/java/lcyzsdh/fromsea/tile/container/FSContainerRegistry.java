@@ -1,4 +1,4 @@
-package lcyzsdh.fromsea.blocks.tile.container;
+package lcyzsdh.fromsea.tile.container;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerInventory;

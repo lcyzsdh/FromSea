@@ -20,5 +20,8 @@ public class FSBlockRegistry {
     public static final RegistryObject<Block> OIL_LAMP = FSBLOCK.register("oil_lamp", () -> new Block(Block.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> STONE_OIL_LAMP = FSBLOCK.register("stone_oil_lamp", () -> new Block(Block.Properties.copy(Blocks.STONE)));
 */
-    //public static final RegistryObject<Block> EARTHEN_JAR = FSBLOCK.register("earthen_jar", FSEarthenJar::new);
+    public static final RegistryObject<Block> EARTHEN_JAR = FSBLOCK.register("earthen_jar", FSEarthenJar::new);
+
+    //crop
+    public static final RegistryObject<Block> SALINE_RICE_CROP=FSBLOCK.register("saline_rice",FSSalineRiceCrop::new);
 }

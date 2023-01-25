@@ -3,6 +3,7 @@ package lcyzsdh.fromsea.items;
 import lcyzsdh.fromsea.FromSea;
 import lcyzsdh.fromsea.blocks.FSBlockRegistry;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
@@ -16,8 +17,6 @@ public class FSItemRegistry {
 
     //materials
     public static final RegistryObject<Item> SALT = FSITEM.register("salt", () -> new Item(new Item.Properties().tab(GROUP)));
-
-    //调味料
     public static final RegistryObject<Item> VINEGAR = FSITEM.register("vinegar", () -> new Item(new Item.Properties().tab(GROUP).food(FSFoodItem.VINEGAR)));
     public static final RegistryObject<Item> SAUCE = FSITEM.register("sauce", () -> new Item(new Item.Properties().tab(GROUP).food(FSFoodItem.SAUCE)));
     public static final RegistryObject<Item> FISH_SAUCE = FSITEM.register("fish_sauce", () -> new Item(new Item.Properties().tab(GROUP).food(FSFoodItem.FISH_SAUCE)));
@@ -29,6 +28,9 @@ public class FSItemRegistry {
     public static final RegistryObject<Item> COOKED_GRASS_CARP = FSITEM.register("cooked_grass_carp", () -> new Item(new Item.Properties().tab(GROUP).food(FSFoodItem.COOKED_GRASS_CARP)));
     public static final RegistryObject<Item> POMFRET = FSITEM.register("pomfret", () -> new Item(new Item.Properties().tab(GROUP).food(FSFoodItem.POMFRET)));
     public static final RegistryObject<Item> COOKED_POMFRET = FSITEM.register("cooked_pomfret", () -> new Item(new Item.Properties().tab(GROUP).food(FSFoodItem.COOKED_POMFRET)));
+
+    //corp
+    public static final RegistryObject<Item> SALINE_RICE_SEEDS=FSITEM.register("saline_rice_seeds",()->new BlockNamedItem(FSBlockRegistry.SALINE_RICE_CROP.get(),new Item.Properties().tab(GROUP)));
 
     //block
     public static final RegistryObject<Item> SHELL_WALL = FSITEM.register("shell_wall", () -> new BlockItem(FSBlockRegistry.SHELL_WALL.get(), new Item.Properties().tab(GROUP)));

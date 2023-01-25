@@ -10,5 +10,7 @@ public class DataRegistry {
     public static void dataGen(GatherDataEvent event){
         //event.getGenerator().addProvider(new FSFurnanceRecipe(event.getGenerator()));
         event.getGenerator().addProvider(new FSLangUS(event.getGenerator()));
+        event.getGenerator().addProvider(new FSLangCN(event.getGenerator()));
+        event.getGenerator().addProvider(new FSItemModel(event.getGenerator(),event.getExistingFileHelper()));
     }
 }
