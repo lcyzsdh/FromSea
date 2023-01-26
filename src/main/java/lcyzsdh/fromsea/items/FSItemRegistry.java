@@ -34,5 +34,5 @@ public class FSItemRegistry {
 
     //block
     public static final RegistryObject<Item> SHELL_WALL = FSITEM.register("shell_wall", () -> new BlockItem(FSBlockRegistry.SHELL_WALL.get(), new Item.Properties().tab(GROUP)));
-    //public static final RegistryObject<Item> EARTHEN_JAR = FSITEM.register("earthen_jar", () -> new BlockItem(FSBlockRegistry.EARTHEN_JAR.get(), new Item.Properties().tab(GROUP)));
+    public static final RegistryObject<Item> EARTHEN_JAR = FSITEM.register("earthen_jar", () -> new BlockItem(FSBlockRegistry.EARTHEN_JAR.get(), new Item.Properties().tab(GROUP)));
 }
