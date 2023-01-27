@@ -13,7 +13,6 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
@@ -41,9 +40,6 @@ public class FSEarthenJar extends HorizontalBlock {
         if(!world.isClientSide&&hand==Hand.MAIN_HAND){
             FSEarthenJarTileEntity tile = (FSEarthenJarTileEntity) world.getBlockEntity(pos);
             NetworkHooks.openGui((ServerPlayerEntity) player,tile,pos);
-            //test
-            StringTextComponent textComponent=new StringTextComponent("hello");
-            player.displayClientMessage(textComponent,false);
         }
         return ActionResultType.SUCCESS;
     }

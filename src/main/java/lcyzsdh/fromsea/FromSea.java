@@ -4,6 +4,7 @@ import lcyzsdh.fromsea.blocks.FSBlockRegistry;
 import lcyzsdh.fromsea.items.FSItemGroup;
 import lcyzsdh.fromsea.items.FSItemRegistry;
 import lcyzsdh.fromsea.tile.FSTileEntityRegistry;
+import lcyzsdh.fromsea.tile.container.FSContainerRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -17,5 +18,6 @@ public class FromSea {
         FSItemRegistry.FSITEM.register(FMLJavaModLoadingContext.get().getModEventBus());
         FSBlockRegistry.FSBLOCK.register(FMLJavaModLoadingContext.get().getModEventBus());
         FSTileEntityRegistry.FSTILEENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
+        FSContainerRegistry.FSCONTAINERTYPE.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

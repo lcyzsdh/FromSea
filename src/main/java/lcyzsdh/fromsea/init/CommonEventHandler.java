@@ -1,5 +1,6 @@
-package lcyzsdh.fromsea.test;
+package lcyzsdh.fromsea.init;
 
+import lcyzsdh.fromsea.FromSea;
 import lcyzsdh.fromsea.items.FSItemRegistry;
 import net.minecraft.loot.ConstantRange;
 import net.minecraft.loot.ItemLootEntry;
@@ -10,8 +11,8 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber()
-public class FishEventHandler {
+@Mod.EventBusSubscriber(modid = FromSea.MOD_ID)
+public class CommonEventHandler {
     @SubscribeEvent
     public static void fishLootRegistry(LootTableLoadEvent event) {
         ResourceLocation name = event.getName();

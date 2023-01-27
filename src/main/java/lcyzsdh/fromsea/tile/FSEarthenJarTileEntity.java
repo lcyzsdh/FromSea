@@ -5,22 +5,63 @@ import lcyzsdh.fromsea.tile.container.EarthenJarContainer;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIntArray;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
 import javax.annotation.Nullable;
 
 public class FSEarthenJarTileEntity extends TileEntity  implements ITickableTileEntity, INamedContainerProvider {
     private int count=0;//test
-    private int time=0;
+
+    private Inventory testInv=new Inventory(1);
+    private IIntArray jarData;
+    private int workTime;
+    private int workTimeTotal;
+
     public FSEarthenJarTileEntity() {
         super(FSTileEntityRegistry.EARTHEN_JAR_TILE_ENTITY.get());
+        this.jarData=createRestTime();
+    }
+
+    private IIntArray createRestTime() {
+        return new IIntArray() {
+            @Override
+            public int get(int index) {
+                switch (index){
+                    case 0:
+                        return FSEarthenJarTileEntity.this.workTime;
+                    case 1:
+                        return FSEarthenJarTileEntity.this.workTimeTotal;
+                    default:
+                        return 0;
+                }
+            }
+
+            @Override
+            public void set(int index, int value) {
+
+                switch (index){
+                    case 0:
+                        FSEarthenJarTileEntity.this.workTime=value;
+                        break;
+                    case 1:
+                        FSEarthenJarTileEntity.this.workTimeTotal=value;
+                        break;
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 2;
+            }
+        };
     }
 
     @Override
@@ -37,16 +78,10 @@ public class FSEarthenJarTileEntity extends TileEntity  implements ITickableTile
 
     @Override
     public void tick() {
-        if(level!=null&&!level.isClientSide){
-            if(time==100){
-                PlayerEntity player=level.getNearestPlayer(worldPosition.getX(),worldPosition.getY(),worldPosition.getZ(),10,false);
-                StringTextComponent textComponent=new StringTextComponent("233");//test
-                if(player!=null){
-                    player.displayClientMessage(textComponent,false);
-                }
-                time=0;
-            }
-            time++;
+        if(!level.isClientSide){
+
+            //TODO:test
+            this.jarData.set(0,10);
         }
     }
 
@@ -58,6 +93,10 @@ public class FSEarthenJarTileEntity extends TileEntity  implements ITickableTile
     @Nullable
     @Override
     public Container createMenu(int ID, PlayerInventory inventory, PlayerEntity player) {
-        return new EarthenJarContainer(ID,inventory,this.worldPosition,this.level);
+        return new EarthenJarContainer(ID,inventory,this.worldPosition,this.level,this.jarData);
+    }
+
+    public Inventory getTestInv() {
+        return testInv;
     }
 }
