@@ -9,7 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
+@SuppressWarnings("unused")
 public class FSItemRegistry {
     public static final DeferredRegister<Item> FSITEM = DeferredRegister.create(ForgeRegistries.ITEMS, FromSea.MOD_ID);
     public static final RegistryObject<Item> FISHWET = FSITEM.register("fishwet", FSItemFishWet::new);

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
-
+@SuppressWarnings("deprecation")
 public class FSEarthenJar extends HorizontalBlock {
     public FSEarthenJar() {
         super(Properties.copy(Blocks.STONE));

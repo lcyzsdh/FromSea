@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public class FSEarthenJarTileEntity extends TileEntity  implements ITickableTileEntity, INamedContainerProvider {
     private int count=0;//test
 
-    private Inventory testInv=new Inventory(1);
+    private Inventory testInv=new Inventory(5);
     private IIntArray jarData;
     private int workTime;
     private int workTimeTotal;
@@ -96,7 +96,7 @@ public class FSEarthenJarTileEntity extends TileEntity  implements ITickableTile
         return new EarthenJarContainer(ID,inventory,this.worldPosition,this.level,this.jarData);
     }
 
-    public Inventory getTestInv() {
+    public Inventory getEarthenJarInv() {
         return testInv;
     }
 }

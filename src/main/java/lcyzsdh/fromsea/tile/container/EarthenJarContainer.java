@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.network.PacketBuffer;
@@ -22,35 +23,40 @@ public class EarthenJarContainer extends Container {
         this.tile= (FSEarthenJarTileEntity) world.getBlockEntity(pos);
         //this.inventory=tileIn.;
         this.jarData=jarDataIn;
-        this.addDataSlots(jarData);
-        this.addSlot(new Slot(tile.getTestInv(),0,80,32));
+        this.addDataSlots(this.jarData);
+        //this.addSlot(new Slot(tile.getEarthenJarInv(),0,80,32));
         layoutPlayerInventorySlots(playerInventory,8,84);//From Boson
-
+        layoutModInventorySlots(tile.getEarthenJarInv(),0,60,32);
     }
 
-    private int addSlotRange(IInventory inventory, int index, int x, int y, int amount, int dx) {
+    private void layoutModInventorySlots(Inventory inv, int index, int leftCol, int topRow) {
+        addSlotLine(inv,index,leftCol,topRow,3,18);
+        addSlot(new EarthenJarResultSlot(inv,index,leftCol+18*3+1,topRow));
+    }
+
+    private int addSlotLine(IInventory inv, int index, int x, int y, int amount, int dx) {
         for (int i = 0; i < amount; i++) {
-            addSlot(new Slot(inventory, index, x, y));
+            addSlot(new Slot(inv, index, x, y));
             x += dx;
             index++;
         }
         return index;
     }
 
-    private int addSlotBox(IInventory inventory, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
+    private int addSlotGroup(IInventory inventory, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
         for (int j = 0; j < verAmount; j++) {
-            index = addSlotRange(inventory, index, x, y, horAmount, dx);
+            index = addSlotLine(inventory, index, x, y, horAmount, dx);
             y += dy;
         }
         return index;
     }
 
-    private void layoutPlayerInventorySlots(PlayerInventory inventory, int leftCol, int topRow) {
+    private void layoutPlayerInventorySlots(PlayerInventory inv, int leftCol, int topRow) {
         // Player inventory
-        addSlotBox(inventory, 9, leftCol, topRow, 9, 18, 3, 18);
+        addSlotGroup(inv, 9, leftCol, topRow, 9, 18, 3, 18);
         // Hotbar
         topRow += 58;
-        addSlotRange(inventory, 0, leftCol, topRow, 9, 18);
+        addSlotLine(inv, 0, leftCol, topRow, 9, 18);
     }
 
     public EarthenJarContainer(final int windowId, final PlayerInventory playerInventory, final PacketBuffer data) {

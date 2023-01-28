@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
+@SuppressWarnings("unused")
 public class FSBlockRegistry {
     public static final DeferredRegister<Block> FSBLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, FromSea.MOD_ID);
 
