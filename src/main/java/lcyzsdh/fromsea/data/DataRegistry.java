@@ -8,9 +8,9 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 public class DataRegistry {
     @SubscribeEvent
     public static void dataGen(GatherDataEvent event){
-        //event.getGenerator().addProvider(new FSFurnanceRecipe(event.getGenerator()));
         event.getGenerator().addProvider(new FSLangUS(event.getGenerator()));
         event.getGenerator().addProvider(new FSLangCN(event.getGenerator()));
         event.getGenerator().addProvider(new FSItemModel(event.getGenerator(),event.getExistingFileHelper()));
+        event.getGenerator().addProvider(new FSRecipes(event.getGenerator()));
     }
 }

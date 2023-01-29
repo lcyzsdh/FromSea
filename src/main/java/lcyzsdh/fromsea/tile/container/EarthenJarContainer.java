@@ -25,6 +25,7 @@ public class EarthenJarContainer extends Container {
         this.jarData=jarDataIn;
         this.addDataSlots(this.jarData);
         //this.addSlot(new Slot(tile.getEarthenJarInv(),0,80,32));
+        //TODO:fix the position
         layoutPlayerInventorySlots(playerInventory,8,84);//From Boson
         layoutModInventorySlots(tile.getEarthenJarInv(),0,60,32);
     }

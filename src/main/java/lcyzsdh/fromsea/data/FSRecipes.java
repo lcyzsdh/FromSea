@@ -6,13 +6,13 @@ import net.minecraftforge.common.data.ForgeRecipeProvider;
 
 import java.util.function.Consumer;
 
-public class FSFurnanceRecipe extends ForgeRecipeProvider {
-    public FSFurnanceRecipe(DataGenerator generatorIn) {
-        super(generatorIn);
+public class FSRecipes extends ForgeRecipeProvider {
+    public FSRecipes(DataGenerator generator) {
+        super(generator);
     }
 
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
-        //CookingRecipeBuilder.cooking(Ingredient.of())
+        FermentingRecipe.register(consumer);
     }
 }

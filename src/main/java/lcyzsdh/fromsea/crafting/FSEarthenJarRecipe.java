@@ -24,27 +24,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
-    public static IRecipeType<FSEarthenJarRecipe> TYPE = IRecipeType.register(FromSea.MOD_ID+"fermenting");
-
+    public static IRecipeType<FSEarthenJarRecipe> TYPE = IRecipeType.register(FromSea.MOD_ID+":fermenting");
+    public static final Serilizer SERILIZER=new Serilizer();
     private final ResourceLocation id;
-    private final String group;
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private final float experience;
     private final int fermentTime;
 
-    public FSEarthenJarRecipe(ResourceLocation id, String group, NonNullList<Ingredient> inputItems, ItemStack output, float experience, int fermentTime) {
+    public FSEarthenJarRecipe(ResourceLocation id, NonNullList<Ingredient> inputItems, ItemStack output, float experience, int fermentTime) {
         this.id=id;
-        this.group=group;
         this.fermentTime=fermentTime;
         this.inputItems = inputItems;
         this.output = output;
         this.experience = experience;
-    }
-
-    @Override
-    public String getGroup() {
-        return this.group;
     }
 
     public float getExperience() {
@@ -107,7 +100,6 @@ public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
 
         @Override
         public FSEarthenJarRecipe fromJson(ResourceLocation recipeID, JsonObject json) {
-            final String group= JSONUtils.getAsString(json,"group","");
             final NonNullList<Ingredient> inputItems=read(JSONUtils.getAsJsonArray(json,"ingredients"));
             if(inputItems.isEmpty()){
                 throw new JsonParseException("No ferment recipes!");
@@ -119,7 +111,7 @@ public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
                 final ItemStack output= CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json,"result"),true);
                 final float experience = JSONUtils.getAsFloat(json, "experience", 0.0F);
                 final int fermentTime = JSONUtils.getAsInt(json, "fermenttime", 200);
-                return new FSEarthenJarRecipe(recipeID,group,inputItems,output,experience,fermentTime);
+                return new FSEarthenJarRecipe(recipeID,inputItems,output,experience,fermentTime);
             }
         }
         private static NonNullList<Ingredient> read(JsonArray array){
@@ -136,7 +128,6 @@ public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
         @Nullable
         @Override
         public FSEarthenJarRecipe fromNetwork(ResourceLocation recipeID, PacketBuffer buffer) {
-            String group = buffer.readUtf(32767);
             int i = buffer.readVarInt();
             NonNullList<Ingredient> inputItems = NonNullList.withSize(i, Ingredient.EMPTY);
             for (int j = 0; j < inputItems.size(); ++j) {
@@ -145,12 +136,11 @@ public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
             ItemStack output = buffer.readItem();
             float experience = buffer.readFloat();
             int fermentTime = buffer.readVarInt();
-            return new FSEarthenJarRecipe(recipeID,group,inputItems,output,experience,fermentTime);
+            return new FSEarthenJarRecipe(recipeID,inputItems,output,experience,fermentTime);
         }
 
         @Override
         public void toNetwork(PacketBuffer buffer, FSEarthenJarRecipe recipe) {
-            buffer.writeUtf(recipe.group);
             buffer.writeVarInt(recipe.inputItems.size());
             for (Ingredient ingredient : recipe.inputItems) {
                 ingredient.toNetwork(buffer);
