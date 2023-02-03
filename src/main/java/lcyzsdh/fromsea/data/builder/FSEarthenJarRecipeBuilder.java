@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lcyzsdh.fromsea.FromSea;
-import lcyzsdh.fromsea.crafting.FSEarthenJarRecipe;
+import lcyzsdh.fromsea.crafting.FSRecipeSerializerRegistry;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -48,15 +48,7 @@ public class FSEarthenJarRecipeBuilder {
     }
     public void build(Consumer<IFinishedRecipe> consumerIn) {
         ResourceLocation location = ForgeRegistries.ITEMS.getKey(result);
-        build(consumerIn, FromSea.MOD_ID + ":fermenting/" + location.getPath());
-    }
-    public void build(Consumer<IFinishedRecipe> consumerIn, String loc) {
-        ResourceLocation resourcelocation = ForgeRegistries.ITEMS.getKey(result);
-        if ((new ResourceLocation(loc)).equals(resourcelocation)) {
-            throw new IllegalStateException("Cooking Recipe " + loc + " should remove its 'save' argument");
-        } else {
-            build(consumerIn, new ResourceLocation(loc));
-        }
+        build(consumerIn, new ResourceLocation(FromSea.MOD_ID + ":fermenting/" + location.getPath()));
     }
     public void build(Consumer<IFinishedRecipe> consumer,ResourceLocation location){
         consumer.accept(new Result(location,this.ingredients,this.result,this.experience,this.fermentTime));
@@ -91,7 +83,7 @@ public class FSEarthenJarRecipeBuilder {
             if (this.experience > 0) {
                 json.addProperty("experience", this.experience);
             }
-            json.addProperty("fermenttime", this.fermentTime);
+            json.addProperty("fermentTime", this.fermentTime);
 
         }
 
@@ -102,7 +94,7 @@ public class FSEarthenJarRecipeBuilder {
 
         @Override
         public IRecipeSerializer<?> getType() {
-            return FSEarthenJarRecipe.SERILIZER;
+            return FSRecipeSerializerRegistry.FERMENTING.get();
         }
 
         @Nullable

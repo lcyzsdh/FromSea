@@ -1,11 +1,11 @@
 package lcyzsdh.fromsea.tile.container;
 
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
-public class EarthenJarResultSlot extends Slot {
-    public EarthenJarResultSlot(IInventory inv, int index, int x, int y) {
+public class EarthenJarResultSlot extends SlotItemHandler {
+    public EarthenJarResultSlot(ItemStackHandler inv, int index, int x, int y) {
         super(inv, index, x, y);
     }
 

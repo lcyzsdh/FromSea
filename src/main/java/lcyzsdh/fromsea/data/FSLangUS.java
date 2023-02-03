@@ -1,6 +1,7 @@
 package lcyzsdh.fromsea.data;
 
 import lcyzsdh.fromsea.FromSea;
+import lcyzsdh.fromsea.blocks.FSBlockRegistry;
 import lcyzsdh.fromsea.items.FSItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -27,7 +28,7 @@ public class FSLangUS extends LanguageProvider {
         add(FSItemRegistry.SAUCE.get(),"sauce");
 
         //blocks
-        //add(FSBlockRegistry.EARTHEN_JAR.get(),"earthen jar");
+        add(FSBlockRegistry.EARTHEN_JAR.get(),"earthen jar");
 
     }
 }

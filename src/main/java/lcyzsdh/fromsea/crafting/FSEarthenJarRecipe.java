@@ -25,7 +25,6 @@ import java.util.List;
 
 public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
     public static IRecipeType<FSEarthenJarRecipe> TYPE = IRecipeType.register(FromSea.MOD_ID+":fermenting");
-    public static final Serilizer SERILIZER=new Serilizer();
     private final ResourceLocation id;
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
@@ -110,7 +109,7 @@ public class FSEarthenJarRecipe implements IRecipe<RecipeWrapper> {
             else {
                 final ItemStack output= CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json,"result"),true);
                 final float experience = JSONUtils.getAsFloat(json, "experience", 0.0F);
-                final int fermentTime = JSONUtils.getAsInt(json, "fermenttime", 200);
+                final int fermentTime = JSONUtils.getAsInt(json, "fermentTime", 200);
                 return new FSEarthenJarRecipe(recipeID,inputItems,output,experience,fermentTime);
             }
         }

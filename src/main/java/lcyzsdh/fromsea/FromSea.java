@@ -1,6 +1,7 @@
 package lcyzsdh.fromsea;
 
 import lcyzsdh.fromsea.blocks.FSBlockRegistry;
+import lcyzsdh.fromsea.crafting.FSRecipeSerializerRegistry;
 import lcyzsdh.fromsea.items.FSItemGroup;
 import lcyzsdh.fromsea.items.FSItemRegistry;
 import lcyzsdh.fromsea.tile.FSTileEntityRegistry;
@@ -19,5 +20,6 @@ public class FromSea {
         FSBlockRegistry.FSBLOCK.register(FMLJavaModLoadingContext.get().getModEventBus());
         FSTileEntityRegistry.FSTILEENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
         FSContainerRegistry.FSCONTAINERTYPE.register(FMLJavaModLoadingContext.get().getModEventBus());
+        FSRecipeSerializerRegistry.FSRECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

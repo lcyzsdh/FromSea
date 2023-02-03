@@ -1,0 +1,13 @@
+{
+  "type": "fromsea:fermenting",
+  "ingredients": [
+    {
+      "item": "fromsea:grass_carp"
+    }
+  ],
+  "result": {
+    "item": "fromsea:cooked_grass_carp"
+  },
+  "experience": 0.1,
+  "fermenttime": 200
+}
